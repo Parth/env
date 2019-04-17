@@ -11,5 +11,7 @@ The aim of this project is to give you a binary that you can throw on a machine,
 Additionally:
 + The MVP will just give you information about the current state of your machine. In the future this application can attempt to answer:
 	+ What changed? By whom? When? To help you further diagnose misbehavior.
-+ Once we have this tree of processes, it might be easy to list metrics about those processes alongside the PID. Things like:
++ We're likely going to be parsing the `/proc` filesystem ([procfs](https://en.wikipedia.org/wiki/Procfs)) to get this information. While we're at it we might as well display other infomation about the machine.
 	+ Hardware utilization: cpu, ram, network, disk, etc.
+
+Candidate for showing heirarchy: http://storybooks.github.io/react-treebeard/
