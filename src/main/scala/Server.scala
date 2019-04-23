@@ -14,11 +14,19 @@ object Server extends App {
   implicit val executor: ExecutionContext = system.dispatcher
   implicit val materializer: ActorMaterializer = ActorMaterializer()
 
-  def route = path("") {
-    get {
-      complete("Hello, World!")
+  def tree = 
+  {
+    path("tree") {
+      get {
+        complete(Ps.getAll)
+      }
+    } ~ 
+    path("info") {
+      get {
+        complete("info")
+      }
     }
   }
 
-  Http().bindAndHandle(route, host, port)
+  Http().bindAndHandle(tree, host, port)
 }
